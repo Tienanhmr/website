@@ -1,0 +1,2471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./responsive.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABRFBMVEUAAADyaCkAAAMAAQAAAAYAAAgAAAz1aCnSYS8AAwDvaikFAAPjaDIqFRfaYSwACQ/pYjEJAADyaSX2ZyTzZyz2ZinwaSz9bCr6Zie4VCzsayoFAAbxZy8aAAASAAAAABBvNhz2ZTDNYzThaDT/ZR/ybjRTKBf5ZC7sbSYoDwrEXTJgMCDmZitFJhx7QCqgSivAUi7XajWuVStvNSg2FROURieiTihjOyeqSzBJLCK3WSfOXTSeTjQpHBYhHBRVLSV2QzRJKCp7NRxFFBOlUTT1bR3ncjRHHQ7NZkJ8RC3xZkGGTixmKxwjBwOIRizMWCmdQSA4GgwkChtKGQlrPSA7Fw1fLRaFOxPHVysgFhk1IiE6FQubVC/eZEOcSjR3LhHLUxnsdEdQJAsoAAVpQTK+VTsrGAdZIw2FPCtYMhjEXB80GCUJ6n3rAAAP0UlEQVR4nO2a63vbNpaHQZAUxMs4JsALJNGKJZG60nYkSx6ncjazamy3WduJN4mbTpx02k7SzMz//30PqBspud7uRHme/YD3SSwJJAEeXM75HZAISSQSiUQikUgkEolEIpFIJBKJRCKRSCQSiUQikUgkEolEIpFIJBKJRCKRSCQSiUQikUgkEolEIpFIJBKJRCKRSCSS/xdgbKiGgQsV+AYgw0COqhriiIE0PX+yamia+LRwesYcuAaLCyoW1IRxtnZL18VvQ1VxRVUdy9LwFPhmZOv4mqhoetuoWnXER0FHeqWiYaRiB24ph2Olt6WiXGkFykUpdM7K+dBLaZ2OpVnwRRcNOaJE15FmWSrw1e3D0Oje/sGjcbGR2I1GvzsYHQ6nt+Do+h0XaLP/2TrgdLDasdbOhyMP9Vkz2k5vVKo3BP3u0dUelMJk+foW6n8eJIQQKjAVhfCAUr9x/Di14x/fFPOMT56kV/3HyThbvFUfPUzteVpauaB4O70AFf5St9kpNKJAax40aNrH/ymM/HqmWTCp9OFBHAjzGAfzXKKYpjK9CWXrStcHASc5FBLEkwJG+3Zk5o8EjW9hmJ61TskqwQQVUOegxonvK1QR9dMyoW1ohG7twjJVC1/JQqegO0dxAG0qYei3GeceY57nujUXihjzi8cxg29g9RIoPzsv7DVMWsuWAsF3Dvre5+bqBQp5fq79Vy04bcO14hDxoB3ix3Cix+J6D2vOV7LQQBfvY87K0BJlpGVvFYv9ftFOFB4QRfEV4jHOhLE5CAtK6CiiZm3lQERea/WIemL887Bvxtw03ZrClLAVJjBz+0lCuOhZl5nlweXXGEPVMTC6sk9Z7DPuJy9eXux1quKAs3Pd3C1t2QRmLTV9xXO37e0MvuJ7P6M6C1s0U2rbhMTR0bminPHEzl8AM99vtVsm5WHydvJ0uCOaudy7eAmNeIRRz6ufI8vY9DgajoFO4siEIfG7kyerh/W9AztWxBSl3/z3n7J0ozJv7DZ4zLcKmeKnieKy7gRGLzj58cmiuPPkW5v7YkK4PK5PflxrRJjPSOMp2vxM1dFVTM0WV7o3GGl4xaGBz7gcxWIesecdPRsaTjx26m6VPdM7yNVWZ2Xmb8EFLqyrxQU6nvie4hPGouIF+OaKtbxGBWXQgUZ8WJTbPbTp4F9BzRiWgEJG4pe1chTiPCrgV30YErN9A4plAeq5xPQIha7vZcoRHgjfKpbpWVVbHsBowEMKHib+AK04KCdiHIx1dF6Ea8jp870NG4geojGnYRT3kGagvM4SYKw6mv6gwULCH2Xli9axWUJMsCX+NVuODyHSwFw02yUY0LnSqRR2Gsw3Cd2egIAQHZFpCGQcdrSCVWq1FY+Oh9ADmwyN+uvQo4q/m4u3axLqTewy3q/mykpRkrrUrawDVNEwjRguab9czjfNQr0AwgOFSXgPB2csZHEJGdZGg3+XM0qO8iLLWLXw4UhReHyTK7sKpkHjWbZQ1ZCY0orP41e5ThtAmDC3L9DqJMmgo2OvTFm4j/TV1fIlXD9nbZ50VuRlYSUwwZwkZjTIlKhaM/aEKcFF9kSjgktgoVtmxdz11T4zTdA02j1+xNDRmPk+71/iTXkb1bDwD+DCg+NFd1uwQpz9ty+2uruQRCGsThFjUGY/w13gyuxMHTWEi3WVYbZ3jAo69JSEUTbIFms31A1ZCWUm7txrq1phee2PEIGYO9qYRIUljgYgPZXMMKioOg5Zu83CR5qOtZmrgDlJzNPwRl+6CLhUTFNvq5qd4UZF/VMA8YK4Ez1b6W1Eif0m1ziq7o5ORo+ziluFZjyTNXbumcv/RzTU9YgSX+vzKkFR9GLq1WoejQ+zZzZNk7GXy2UEX/aFkGXPcktLeOMk8hXWGGaKcbXOKT3JhroC+mxTzgP+3TB3R/WozFqfN2lhnRMz/LQQEoZTaILahzjn8tLDBwsKfz31Q/oeLXocW4V3wmsGuzkLK6qDBm7o83FWO+BmTN3kOidXbgMCUdiMo35OSO0Hpht0N2agsBDyILujZyf+pMHSJLFNIZ0KSDBF+E3a1J2Zm1MdjN63y177ek0m/CVqu+xIn5sjOuCD1wY/tWjEUfFPkK1AG+B/6N+0gjMfXc3og7b5+RVeLvgvA6MueD7o3YyFqlbdvX1UTNwW5DaM+pncwDvJhGoNHTNCitU1lfAmbpPyb0tHo+nOGEQshNzF+CP0HWXlEIBMMXmD8HzRYnQECzH4QUf3xZU/bh/MJOHbleaK8xINVq97k+NxI+SZFMjro/mtaBjpuyDPnq1tZCC9T0ijs7xDHTdFuvQOL1vBlz9z7s6mh3+4NAeDGqQm727EPlGdil6CxuJXKLtCxPYX/NGE+7lsHm3F0yRRhAazubTQQJcN4oPLnO25LW5KH3DSXQ42HAFHTJ4jdb4rpyLtcjfDG30xS5HeSWjiNZC6MV3zS+yVebFy10bTjMpukXIlzVMTdpAbbXB8v8wMtgo7izquIn+EF3eo4UIRFvsYVf5AHFf1dN3E7zRtdWr82/Q59fzJw3vO0KqjkKU7AAqv56bPLR/vzM7B6PtF8Xk5bqKFhSp6Y4O4e/THLLTQM7CQ3KwnAf8u2oiajCTvfv8MkP3oAjID4UuJ38yOdpMczb5Bhtefl+Jqf9vJRoYrcc8lsPAP3LSDPoPbhnWzMR78+tykLmtUCwVHpDHrZ+jC0U5MIUJZwkbC18+O4Mv4h/lZ+Cb+VmwPo1RG/A0tl2UFdWlqobNqoZr7SD+xgy4g3Wcf0MYyqIr+WiSspH+D79kG0tBgZmEdLJzPNhUNlkFhFEzANQkLMRqNMtfqQ5ums9TKWJj2hXXnnxuXme3jjVmo6p2DULhJHg/O07tDd+2u48J1Mt0tM19p2rLT/345sxCD1ynNopql7z3OXrwv8uTUwmXZPRvcv/hEoR+X/fhlgBdo8LJQX55H4u5k+DvjCNp7IGIG8+kVWliIl0FG6zR4A2lpx1t6NadHHp26Ss6XQh9WHhZ+j/My8dijzViI040jkKCAB/+Yb2+VRr1P04MWKLOMxz4ErcogLr7QsnpqERJ6xKfnupXOQ+xkF9yOmKQQAHYK1nzALfx068V46w5ewH+x5ZpNRb/EQhX1zPn+7vSJBam5Zrk4uHraAbFVyK6F85D6YlcxvL5Tb9wGfrCP7vJUvXjaRk+fXwg9N4y5Yi7VEiHuFNGHyuZ8KWiMk0gEcjuxZySJDc2xiNndH1Ah+2hwOA0Yind3413uQ8ffZXvJK4ueAbEwP6qK5NJjZX++ea4wPiMSvxTFHm4oGqqphcHN9OlgBSjor2zO3G2YuuFtbndxZ8x9MRhR6S47PtlRGC1Va4ZCzMvpfmt9KWBBH7yDXH7+oODFx4+lOcePknTRbixDvILGyWTpMcB5NCI/5BQS3mIVLeMCuuzzkCaUxnS4aoeqahMI023+m7aaSWGtB0e8s5bZMm8KmQWsNZOAMFpOIlLKubc90zPDMVI3YiKsmkPhyD8sJRYU3bapWwsJ40UDLW4Ja29sHkaQ0hGyv1YPzAWYW22YwCtiEu4zFWFnHFTFIJfj628GCSQXrPE9Wu4PqwVREwteimHeANDj53EqN/RlAEA/jslpG5Im+wotLdTQDWE+s2NIGUvrFTndNJas5eZQrS0S0N52m3ggVpc4IDDe3ezuPq5C9Fk6NH2YgIqMX2G8kd0ozVKrDQo5/qfM9h3GO6Ot7SQpjsDuRTEMLVdidtCA4BJfrtSDtWtbbCyyxuVaQvBYDOEL/WPbC0UHLCoEhajqIlxlJbYqfHK5zGCSbuj5DISvjzDvIIrnw6v+5PqvD3I24E6Dma736Thqb/N9lH8kraNDsclBfdJbWaIWOoL6WyPUjF3fJ5//FweioiYMOaGTLzEqX6GGf/JZmT6/zva9aqgiOcsaraERIwzc4YVPlejt2io5SZ+/+cEoXzzbB9o+19GA+b6y3bxv9wUW7YOziJjRGG3qSamhwiDWmU+ievaRRMVC2uoiuIGe5fFP+EkDlA/V85HdgkpEPAij1YWIm66psCLCeqeh+D505b03tFOnUcLi5sZyQ1XM9ouY1docuq3gwIISVetYLP30FaH0vSHID3f7UVxm70GNlThNgj8XYA0tQcOy59dM4rKzdzrKHtFGgWkGI6FmJjWW1GjjN1QQ+tTKhBUYV0MVr7Ncf8fbvpgI+iafITqolMaAPjQNgnJlgYvXosDoD2eU+Rx8oQM3CmrrbX77CR/SVrnV9ohHd1f2yOqMKG4zPfmEsjJjZ7AWK/nnh7AqLOhd9LkRlSl331ra2hT6Egy8U3cZM3l8dL2+g2dV4OZ63YDCGbURmKU92ebEtHc0LTOE6IPJ27V/csXjJwhnB3fPppQX02o18fhJvMvShaChZ58BI6ug69o/6jHnocu7v2qVDWVOM0AF133P9BU3OWo+WDv8ZDKGGAiyhIywLlzTP03FpLsPnQeZDfEi5af2bzHooG71QfbAqKVQPhWkWHeetYipeCB5L1b8jfZkUo+F6Ca829GxYW1uVx+life7buAS6F4Sb5UmTzvzmbqz1xt17ZBRs5VE/kvoeCGZr0jMaJLPeUQsfIHeE5CU+QOh5/vlp6lbNioYvfSjpAUDGdul/b3pHpZWhVaKiXlKWjVKg+NLTby/tEkLBYXqkekxU0h9RmK7X+8C9fF22AoVDtmjWY6KvfnCuy6LPWKiZF6PAszoCA0i5mbLxYtTHmN2usedgnv9qGy6NZOZcZhsiXb6fTuOuQdJW/uUv3+dVRkbRNXQXj2di4qfmBD3GKPwl8B0ZB60zOLby2W3Plt9Dyh9ogFp4y9nfLXYh/X7eSn+MOrchgErK6JySlkKtETLZ6cReIKO8EJf4/W2CkQGfFP002YJ5DRuzfdd1yec+SHltYNhqq6nGNVxlA5Pfqwm4P+uXOiZHD4z34KPXlwLX64HHkwCn3huTaS8IQx7CK4uSEZDsY9ubCza38G/PhTLQmOJIeQe5MH09JTa3/TyTYLy2N9qLHPmlEH6AiV6XLLzNMaH6+1UPxdjT7ycmPaBQlkrTt7e+wrDZkgjVOdwVCr2GyLXT2zx6mfT0Ve2Jhx93eGitOOdtWc0gtWzHRgovfP64FFRNJIkjXrpqomwEBxfGRA4jjZVMjud4XB4WRXvzoLImb7Tu8BQhSzIbzlOf2kYrd0ltlaLDFwRZdAZDrQyrIo4gsXbwvqmHeg6qgH3Y003vkFwYZyuvQpWc+4NkkojfS96iYVnShzrGs6hotXXyJAO0aAiGpqmTToWAg5vJuGVSCQSiUQikUgkEolEIpFIJBKJRCKRSCQSiUQikUgkEolEIpFIJBKJRCKRSCQSiUQikUgkEolEIpFIJBKJRCKRSCQb4X8A3rWCJAc5mEkAAAAASUVORK5CYII="
+        type="image/x-icon" />
+    <title>SWE</title>
+    <style>
+        @media (min-width: 640px) {}
+
+        @media (min-width: 768px) {
+            .md\:flex {
+                display: flex;
+            }
+
+            .md\:text-7xl {
+                font-size: 4.5rem;
+                line-height: 1;
+            }
+
+            .md\:text-2xl {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+
+            .md\:grid-cols-3 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            .md\:gap-8 {
+                gap: 2rem;
+            }
+
+            .md\:text-3xl {
+                font-size: 1.875rem;
+                line-height: 2.25rem;
+            }
+
+            .md\:w-auto {
+                width: auto;
+            }
+
+            .md\:inline-block {
+                display: inline-block;
+            }
+
+            .md\:py-5 {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .md\:text-6xl {
+                font-size: 3.75rem;
+                line-height: 1;
+            }
+        }
+
+        @media (min-width: 1024px) {}
+
+        @media (min-width: 1280px) {}
+
+        @media (min-width: 1536px) {}
+
+        frame[name=page] {
+            width: 100%;
+            min-height: 2000px;
+        }
+
+        iframe[name=page] .about {
+            width: 100%;
+            min-height: 2000px;
+        }
+
+        :root {
+            --white: #fff;
+            --orange: #f72;
+            --black: #000;
+        }
+
+        html {
+            font-family: sans-serif;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box
+        }
+
+        /* ========= Space-beetween ======= */
+        .between {
+            justify-content: space-between;
+        }
+
+        /* ========= Display ======= */
+        .flex {
+            display: flex;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .grid-columns {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        /* ========= Center ======= */
+        .center {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* ========= Padding ======= */
+        .px-5 {
+            padding: 0 20px;
+        }
+
+        .px-4 {
+            padding: 0 15px;
+        }
+
+        .px-2 {
+            padding: 0 8px;
+        }
+
+        .px-l40 {
+            padding-left: 155px;
+        }
+
+        .pt-8 {
+            padding-top: 30px;
+        }
+
+        .px {
+            padding: 35px 200px;
+        }
+
+        .px-t4 {
+            padding: 15px 0;
+        }
+
+        .px-1 {
+            padding: 5px;
+        }
+
+        .px-t5 {
+            padding-top: 20px;
+            padding-bottom: 5px
+        }
+
+        .px-t {
+            padding-top: 70px;
+        }
+
+        .py {
+            padding: 30px 0;
+        }
+
+        .py-2 {
+            padding: 8px 0;
+        }
+
+        .py-t {
+            padding: 50px 0 15px 0;
+        }
+
+        .mr-b5 {
+            margin-bottom: -18px
+        }
+
+        .mr-t {
+            margin-top: 85px;
+        }
+
+        .slide {
+            margin-top: 85px;
+        }
+
+        .mr-r {
+            margin-right: 33%;
+        }
+
+        .mr-r1 {
+            margin-right: 32%;
+        }
+
+        .mr-r2 {
+            margin-right: 30%;
+        }
+
+        /* ========= Color ======= */
+        .color {
+            color: var(--black);
+        }
+
+        .c-orange {
+            color: var(--orange);
+        }
+
+        .c-gray {
+            color: #484848;
+        }
+
+        .m {
+            color: #000;
+        }
+
+        /* ========= Font-weight ======= */
+        .font-weight {
+            font-weight: 600;
+        }
+
+        .fw-4 {
+            font-weight: 400;
+        }
+
+        /* ========= Font-size ======= */
+        .size {
+            font-size: 35px;
+        }
+
+        .size-3 {
+            font-size: 14px;
+        }
+
+        .size-4 {
+            font-size: 15px;
+        }
+
+        .size-6 {
+            font-size: 24px;
+        }
+
+        .size-5 {
+            font-size: 20px;
+        }
+
+        .size-5 {
+            font-size: 18px;
+        }
+
+        .size-9 {
+            font-size: 30px;
+        }
+
+        .size-10 {
+            font-size: 42px;
+        }
+
+        /* ========= line-height ======= */
+        .line {
+            line-height: 31px;
+        }
+
+        .line-5 {
+            line-height: 22px;
+        }
+
+        .line-2 {
+            line-height: 10px;
+        }
+
+        /* ========= width ======= */
+        .width {
+            width: 40%;
+        }
+
+        .max-w-full {
+            max-width: 100%;
+        }
+
+        .width-2 {
+            width: 90%;
+        }
+
+        /* ========= Font-style ======= */
+        .font-style {
+            font-style: italic;
+        }
+
+        /* ========= text-decoration ======= */
+        .text-decoration {
+            text-decoration: none;
+        }
+
+        /* ========= tex-center ======= */
+        .tex-center {
+            text-align: center;
+        }
+
+        /* ========= Cursor ======= */
+        .cursor {
+            cursor: pointer;
+        }
+
+        /* ========= lyst-style ======= */
+        .style {
+            list-style: none;
+        }
+
+        .header {
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            height: 85px;
+            line-height: 85px;
+            z-index: 1;
+            background: #fff;
+        }
+
+        .header-menu {
+            margin-left: 50px;
+        }
+
+        /* ========= Hover Menu ======= */
+        .hover li:hover a {
+            color: var(--orange);
+            letter-spacing: 5px;
+        }
+
+        .hover li a:hover::after {
+            transform: scale(1);
+        }
+
+        .hover li a::after {
+            content: " ";
+            display: block;
+            height: 2px;
+            background-color: var(--orange);
+            margin: -35px 5px 0 -1px;
+            transform: scale(0);
+            transition: all 0.5s;
+        }
+
+        .hover_tow li:hover a {
+            color: var(--orange);
+        }
+
+        .hover_tow li a:hover::after {
+            transform: scale(1);
+        }
+
+        .hover_tow li a::after {
+            content: " ";
+            display: block;
+            height: 2px;
+            background-color: var(--orange);
+            margin: -35px 0px 0 0px;
+            transform: scale(0);
+            transition: all 0.5s;
+        }
+
+        /* Hover con*/
+        .flex li:hover .nav-menu {
+            display: inline-block;
+        }
+
+        .nav-menu {
+            z-index: 1;
+            position: absolute;
+        }
+
+        .nav-menu li {
+            margin-top: -20px;
+        }
+
+        .flex .nav-menu {
+            display: none;
+        }
+
+        /* Slide show */
+
+        .carousel-item img {
+            height: 500px;
+        }
+
+
+
+
+
+
+
+        @import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
+
+        figure.snip0016 {
+            font-family: 'Raleway', Arial, sans-serif;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+            min-width: 220px;
+            max-width: 390px;
+            max-height: 540px;
+            width: 100%;
+            background: #000000;
+            text-align: left;
+        }
+
+        figure.snip0016 * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        figure.snip0016 img {
+            max-width: 100%;
+            opacity: 1;
+            width: 100%;
+            -webkit-transition: opacity 0.35s;
+            transition: opacity 0.35s;
+        }
+
+        figure.snip0016 figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 30px 3em;
+            width: 100%;
+            height: 100%;
+        }
+
+        figure.snip0016 figcaption::before {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            bottom: 30px;
+            left: 100%;
+            border-left: 4px solid rgba(255, 255, 255, 0.8);
+            content: '';
+            opacity: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+            -webkit-transition-delay: 0.6s;
+            transition-delay: 0.6s;
+        }
+
+        figure.snip0016 h2,
+        figure.snip0016 p {
+            margin: 0 0 5px;
+            opacity: 0;
+            -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+            transition: opacity 0.35s, -webkit-transform 0.35s, -moz-transform 0.35s, -o-transform 0.35s, transform 0.35s;
+        }
+
+        figure.snip0016 h2 {
+            word-spacing: -0.15em;
+            font-weight: 300;
+            text-transform: uppercase;
+            -webkit-transform: translate3d(30%, 0%, 0);
+            transform: translate3d(30%, 0%, 0);
+            -webkit-transition-delay: 0.3s;
+            transition-delay: 0.3s;
+        }
+
+        figure.snip0016 h2 span {
+            font-weight: 800;
+        }
+
+        figure.snip0016 p {
+            font-weight: 200;
+            -webkit-transform: translate3d(0%, 30%, 0);
+            transform: translate3d(0%, 30%, 0);
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+
+        figure.snip0016 a {
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            color: #ffffff;
+        }
+
+        figure.snip0016:hover img {
+            opacity: 0.3;
+        }
+
+        figure.snip0016:hover figcaption h2 {
+            opacity: 1;
+            -webkit-transform: translate3d(0%, 0%, 0);
+            transform: translate3d(0%, 0%, 0);
+            -webkit-transition-delay: 0.4s;
+            transition-delay: 0.4s;
+        }
+
+        figure.snip0016:hover figcaption p {
+            opacity: 0.9;
+            -webkit-transform: translate3d(0%, 0%, 0);
+            transform: translate3d(0%, 0%, 0);
+            -webkit-transition-delay: 0.6s;
+            transition-delay: 0.6s;
+        }
+
+        figure.snip0016:hover figcaption::before {
+            background: rgba(255, 255, 255, 0);
+            left: 30px;
+            opacity: 1;
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+
+
+        .content-slide {
+            display: flex;
+            width: 100%;
+            padding: 4% 20%;
+            box-sizing: border-box;
+            height: 50vh;
+        }
+
+        .box {
+            flex: 1;
+            overflow: hidden;
+            transition: .5s;
+            margin: 0 2%;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, .1);
+            line-height: 0;
+        }
+
+        .box>img {
+            width: 200%;
+            height: calc(100% - 10vh);
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .box>span {
+            font-size: 2.8vh;
+            display: block;
+            text-align: center;
+            height: 10vh;
+            line-height: normal;
+        }
+
+        .box:hover {
+            flex: 1 1 50%;
+        }
+
+        .box:hover>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer {
+            height: 60px;
+            line-height: 60px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            z-index: 99;
+        }
+
+
+        /*ABOUT SWE*/
+        .about {
+            margin: 0 auto;
+            max-width: 800px;
+            margin-top: 90px;
+        }
+
+        .about h2 {
+            font-size: 30px;
+            font-weight: 500;
+            color: #333333;
+            padding: 30px 0;
+        }
+
+        .about h1,
+        .content-two h1 {
+            font-size: 32px;
+            font-weight: 600;
+            padding-bottom: 15px;
+        }
+
+        .content_about p,
+        .content-two p,
+        .content-three p,
+        .content-four p,
+        .content-five p {
+            text-align: justify;
+            font-size: 14px;
+            color: #484848;
+            line-height: 1.3;
+        }
+
+        .content-two p,
+        .content-three p,
+        .content-four p,
+        .content-five p,
+        .contact p {
+            padding: 10px 0;
+        }
+
+        .content-three {
+            padding: 15px 0;
+        }
+
+        .content-four {
+            padding: 15px 0;
+        }
+
+        .content-five {
+            padding: 15px 0;
+        }
+
+        .contact h5 {
+            color: #484848;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 0;
+        }
+
+        /* Return Policy */
+        .about strong {
+            color: var(--orange);
+        }
+
+        /* CONTACT US */
+        textarea {
+            resize: none;
+        }
+
+        .button button {
+            padding: 6px 30px;
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 70px;
+            margin-bottom: 20px;
+        }
+
+        .wrapper {
+            text-align: center;
+            width: 100%;
+            position: relative;
+            margin-top: -30px;
+        }
+
+        .btn,
+        .btn10 {
+            padding: 15px 50px;
+            margin: 10px 4px;
+            color: #fff;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            bottom: 50%;
+            left: 0px;
+            width: 100%;
+            height: 1px;
+            background: #6098FF;
+            display: block;
+            -webkit-transform-origin: left top;
+            -ms-transform-origin: left top;
+            transform-origin: left top;
+            -webkit-transform: scale(0, 1);
+            -ms-transform: scale(0, 1);
+            transform: scale(0, 1);
+            -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+            transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
+        }
+
+        .btn:hover::before {
+            -webkit-transform-origin: right top;
+            -ms-transform-origin: right top;
+            transform-origin: right top;
+            -webkit-transform: scale(1, 1);
+            -ms-transform: scale(1, 1);
+            transform: scale(1, 1)
+        }
+
+        .btn10 {
+            top: 40px;
+            font-family: "proxima-nova", sans-serif;
+            font-weight: 500;
+            font-size: 13px;
+            text-transform: uppercase !important;
+            letter-spacing: 2px;
+            color: #000;
+            cursor: hand;
+            text-align: center;
+            text-transform: capitalize;
+            border: 1px solid #000000;
+            position: relative;
+            overflow: hidden !important;
+            -webkit-transition: all .3s ease-in-out;
+            -moz-transition: all .3s ease-in-out;
+            -o-transition: all .3s ease-in-out;
+            transition: all .3s ease-in-out;
+            background: transparent !important;
+            z-index: 10;
+
+        }
+
+
+        .btn10:hover {
+            border: 1px solid #071982;
+            color: #80ffd3 !important;
+        }
+
+        .btn10::before {
+            content: '';
+            width: 0%;
+            height: 100%;
+            display: block;
+            background: var(--orange);
+            position: absolute;
+            -ms-transform: skewX(-20deg);
+            -webkit-transform: skewX(-20deg);
+            transform: skewX(-20deg);
+            left: -10%;
+            opacity: 1;
+            top: 0;
+            z-index: -12;
+            -moz-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+            -o-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+            -webkit-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+            transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+            box-shadow: 2px 0px 14px rgba(0, 0, 0, .6);
+        }
+
+        .btn10::after {
+            content: '';
+            width: 0%;
+            height: 100%;
+            display: block;
+            background: #80ffd3;
+            position: absolute;
+            -ms-transform: skewX(-20deg);
+            -webkit-transform: skewX(-20deg);
+            transform: skewX(-20deg);
+            left: -10%;
+            opacity: 0;
+            top: 0;
+            z-index: -15;
+            -webkit-transition: all .94s cubic-bezier(.2, .95, .57, .99);
+            -moz-transition: all .4s cubic-bezier(.2, .95, .57, .99);
+            -o-transition: all .4s cubic-bezier(.2, .95, .57, .99);
+            transition: all .4s cubic-bezier(.2, .95, .57, .99);
+            box-shadow: 2px 0px 14px rgba(0, 0, 0, .6);
+        }
+
+        .btn10:hover::before,
+        .btn1O:hover::before {
+            opacity: 1;
+            width: 116%;
+        }
+
+        .btn10:hover::after,
+        .btn1O:hover::after {
+            opacity: 1;
+            width: 120%;
+        }
+
+        /* TOPS */
+        .tops {
+            margin: 0 auto;
+            max-width: 1150px;
+            margin-top: 90px;
+            text-align: center;
+        }
+
+
+        .product-css {
+            padding: 15px;
+            background: rgba(75, 63, 63, .5);
+            margin-top: -55px;
+            position: relative;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .col-md-3 .affter:hover .product {
+            display: inline-block;
+        }
+
+        .affter:hover .hove2 {
+            display: inline-block;
+        }
+
+        .hove2 {
+            display: none;
+        }
+
+        .affter a:hover img {
+            transition: all 0.65s;
+            transform: rotateY(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="about">
+            <h2>ABOUT US</h2>
+            <h1>LỊCH SỬ HÌNH THÀNH</h1>
+            <div class="content_about">
+                <p>Được thành lập vào cuối năm 2016 trong bối cảnh thời trang streetstyle dần nhen nhóm vào thị trường
+                    Việt Nam.
+                    Sau 6 năm phát triển, SWE - Street Wear Eazy với slogan Young kids with a mission™ đã chiếm được
+                    tình cảm của
+                    hầu hết các bạn trẻ yêu mến thời trang đường phố trên khắp cả nước. </p>
+                <p>Thời trang vận hành như dòng thời gian không ngừng dịch chuyển. Hiểu được điều này, SWE luôn biết
+                    cách làm mới mình bằng cách liên tục cho ra đời những sản
+                    phẩm không chỉ chất lượng mà còn có thiết kế vô cùng độc đáo, mới lạ và ấn tượng, đảm bảo khiến bạn
+                    trông trendy hơn bao giờ hết. </p>
+                <p class="center"><img src="https://file.hstatic.net/1000343889/file/founders_grande.jpg" alt=""></p>
+            </div>
+            <div class="content-two">
+                <h1>QUÁ TRÌNH PHÁT TRIỂN </h1>
+                <p class="font-style">"Ước mơ của chúng mình là đưa thương hiệu SWE trở thành cái tên quen thuộc với các
+                    bạn trẻ trên cả nước, vươn xa đến các quốc gia lân cận.”</p>
+                <p>Sau 6 năm hình thành và phát triển, SWE đã trở thành một trong những thương hiệu thời trang được các
+                    tín đồ streetstyle săn đón. Hiện tại, SWE đã chính thức có mặt trên 4 tỉnh thành: Hồ Chí Minh, Hà
+                    Nội, Biên Hoà, Cần Thơ với nhiều chi nhánh. </p>
+                <p>Tại thành phố Hồ Chí Minh, SWE có 5 chi nhánh:</p>
+                <p>44A Trần Quang Diệu, Quận 3.</p>
+                <p>TNP Lý Tự Trọng, Quận 1.</p>
+                <p>TNP Lê Lai, Quận 1.</p>
+                <p>350 Điện Biên Phủ, Bình Thạnh.</p>
+                <p>136 Nguyễn Hồng Đào, Tân Bình.</p>
+            </div>
+            <div class="content-three">
+                <p>Tại thủ đô Hà Nội, SWE có 2 chi nhánh:</p>
+                <p>TNP Vincom Bà Triệu, Hai Bà Trưng.</p>
+                <p>73 Đông Các, Ô Chợ Dừa.</p>
+            </div>
+            <div class="content-four">
+                <p>Tại Biên Hoà, SWE có 1 chi nhánh:</p>
+                <p>Vincom Shophouse Biên Hòa - Phạm Văn Thuận, Tân Mai.</p>
+            </div>
+            <div class="content-five">
+                <p>Tại Cần Thơ, SWE có 1 chi nhánh:</p>
+                <p>Vincom Shophouse Xuân Khánh - 209 Đường 30/4, Quận Ninh Kiều.</p>
+            </div>
+            <div class="contact">
+                <h5>THÔNG TIN LIÊN HỆ VÀ ĐẶT HÀNG:</h5>
+                <p>Hotline: 1900 3136</p>
+                <p>Email:<a class="text-decoration color" href=""> streetweareazy@gmail.com</a></p>
+                <p>Website:<a class="text-decoration color" href=""> https://swe.vn/</a></p>
+                <p>Facebook:<a class="text-decoration color" href="https://www.facebook.com/SWE-HANOI-865406597150513/">
+                        https://www.facebook.com/SWE-HANOI-865406597150513/</a></p>
+                <p>Instagram:<a class="text-decoration color" href=""> https://www.instagram.com/swe.vn/?hl=vi</a></p>
+                <p>Shopee:<a class="text-decoration color" href=""> https://shopee.vn/swe.sg</a></p>
+                <p>Lazada:<a class="text-decoration color" href=""> https://www.lazada.vn/catalog/?q=swe</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="tops">
+            <div class="product-grid grid-columns grid">
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/intlpink_b523d4132530456fa58a4f8a59787f58_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">INTL TEE - PINK</p>
+                            <p class="size-3 font-weight">300,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/8254_5551716b7b144c20a851800510643333_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">INTL TEE - BLACK</p>
+                            <p class="size-3 font-weight">240,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/blk-smoked-tee-1_5731df470e1e44a29b10069b6209b014_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">CUBE SMOKE TEE - BLACK</p>
+                            <p class="size-3 font-weight">224,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/img_8655_331ab0a9997f48b99234d8828ce2244c_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">INTL SHOULDER BAG - BLACK</p>
+                            <p class="size-3 font-weight">250,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/logos-tee-black-1_b7954cc53e374b0e9ce53ab2f6ca030a_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">LOGOS TEE - BLACK</p>
+                            <p class="size-3 font-weight">320,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/10-te9100-tx01-1_546861d38d704cbeb6a4b8175f9f76e9_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">LOGOS TEE - WHITE</p>
+                            <p class="size-3 font-weight">320,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/1-te9100-tx01-1_65b7a4a59b4541d7b4ce570715009e63_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">CUBE SMOKE TEE - WHITE</p>
+                            <p class="size-3 font-weight">224,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/thunder-f_6ffc496d3a9540d7a789fb41422a2f58_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">THUNDER TEE - BLACK</p>
+                            <p class="size-3 font-weight">231,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/1276_977906971c6d40fea7d227c9df49ba9a_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">BONE TEE - WHITE</p>
+                            <p class="size-3 font-weight">238,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/buom-den-f_913376ac3c6742b9ba3d228aa04ab521_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">BUTTERFLY '21 TEE - BLACK</p>
+                            <p class="size-3 font-weight">320,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/buom-trang-f_8514847ae0394ecaacfdaf1af03ee7de_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">BUTTERFLY '21 TEE - BLACK</p>
+                            <p class="size-3 font-weight">320,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/1-te9100-tx01-_1_52cce3a1dab24f4f97b4457c63e54714_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">BUTTERFLY '21 TEE - WHITE</p>
+                            <p class="size-3 font-weight">320,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/swepoc_fc72470ce57a4a9f9514c7ca56eafa60_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">RINGER TEE - BLUE</p>
+                            <p class="size-3 font-weight">210,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/1740_520e486166e042dc8b6ddbc52aae9c38_medium.png"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">FLAME POCKET TEE - BLACK</p>
+                            <p class="size-3 font-weight">231,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/2401_3ca8624e20684bd5bb78d836cc1d24f3_medium.png"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">EGYPT TEE - BLACK</p>
+                            <p class="size-3 font-weight">231,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/crayon_84d97b830c5148949c4225ddd6eefde4_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">CRAYON TEE - WHITE</p>
+                            <p class="size-3 font-weight">224,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/2683_5f365049c35445c6a9058d2145917548_grande.png"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">90'S TEE - WHITE</p>
+                            <p class="size-3 font-weight">340,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/2-te9100-tx01-1_d8b65cff84544e3caa0f55834da2c454_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">RINGER TEE - PINK</p>
+                            <p class="size-3 font-weight">300,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/f_0a4066cf7b1048c8b4baceaf866e84d3_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">THERMAL TEE - DARK GREY</p>
+                            <p class="size-3 font-weight">330,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/61_96c7ba2cd1c542cfa8e0b64a66ae8d5b_grande.png"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">90'S TEE - BLACK</p>
+                            <p class="size-3 font-weight">340,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="about tex-center">
+            <p class="font-weight size px-t">CONTACT US</p>
+            <p class="mr-r font-weight size-5 px-t5">Name</p>
+            <input class="width px-1" type="text" placeholder="Nam">
+            <p class="mr-r font-weight size-5 px-1">Email</p>
+            <input class="width px-1" type="text" placeholder="Email">
+            <p class="mr-r1 font-weight size-5 px-1">Phone</p>
+            <input class="width px-1" type="text" placeholder="Phone">
+            <p class="mr-r2 font-weight size-5 px-1">Message</p>
+            <textarea class="width" name="" id="" cols="30" rows="10"></textarea>
+            <div class="wrapper">
+                <a href="#0" class="btn10">
+                    <span>SUBMIT</span>
+                    <div class="transition"></div>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    <div class="container">
+        <div class="about">
+            <p class="size">HIRING</p>
+            <div class="px-t4">
+                <P class="tex-center py-2 c-gray">Vui lòng gửi CV tới email hr@swe.vn kèm theo vị trí bạn muốn ứng tuyển
+                </P>
+                <P class="tex-center py-2 c-gray">[Vị trí ứng tuyển + Họ và tên]</P>
+            </div>
+
+            <p class="size tex-center px-t4">STORE MANAGER</p>
+            <P class="size-5 c-gray py-2">- Quản lý hoạt động vận hành & kinh doanh của các cửa hàng SWE</P>
+            <P class="size-5 c-gray py-2">- Đảm bảo các tiêu chuẩn về store concept</P>
+            <P class="size-5 c-gray py-2">- Yêu thích thời trang, năng động, có tinh thần cầu tiến</P>
+            <P class="size-5 c-gray py-2">- Chế độ phúc lợi, thăng tiến hấp dẫn</P>
+            <p class="size tex-center px-t4">MARKETING MANAGER</p>
+            <p class="size-5 c-gray py-2">- Quản lý vận hành và phát triển thương hiệu, chịu trách nhiệm cho toàn bộ các
+                hoạt động marketing của SWE</p>
+            <p class="size-5 c-gray py-2">- Tham mưu cùng BOD chiến lược quảng bá thương thiệu theo định kỳ tháng, quý,
+                năm</p>
+            <p class="size-5 c-gray py-2">- Yêu thích thời trang, có tinh thần sáng tạo, nhạy bén, nắm bắt xu hướng</p>
+            <p class="size-5 c-gray py-2">- Chế độ phúc lợi, thăng tiến hấp dẫn</p>
+            <p class="size tex-center px-t4">MEDIA PLANNER</p>
+            <p class="size-5 c-gray py-2">- Lên kế hoạch phát triển media đa kênh (hình ảnh trên social network, Tiktok,
+                Youtube,...), làm việc với các đối tác truyền thông, KOLs, influencers,...</p>
+            <p class="size-5 c-gray py-2">- Đảm bảo hiệu quả về hoạt động truyền thông thương hiệu</p>
+            <p class="size-5 c-gray py-2">- Yêu thích thời trang, đam mê sáng tạo, nắm bắt tốt xu hướng</p>
+            <p class="size-5 c-gray py-2">- Chế độ phúc lợi, thăng tiến hấp dẫn</p>
+            <p class="size tex-center px-t4">TRỢ LÝ SẢN XUẤT</p>
+            <p class="size-5 c-gray py-2">- Chịu trách nhiệm nghiên cứu và làm việc với nguồn nguyên phụ liệu, vải vóc,
+                gia công,... để hỗ trợ tốt cho công việc triển khai mẫu mã</p>
+            <p class="size-5 c-gray py-2">- Đảm bảo tiến độ sản xuất theo yêu cầu công ty đưa ra</p>
+            <p class="size-5 c-gray py-2">- Có kiến thức về ngành may mặc, nắm bắt xu hướng mới, quen biết rộng rãi các
+                đầu mối trong công việc</p>
+            <p class="size-5 c-gray py-2">- Chế độ phúc lợi, thăng tiến hấp dẫn</p>
+            <p class="size tex-center px-t4">THỢ MAY MẪU CHÍNH</p>
+            <p class="size-5 c-gray py-2">- Chịu trách nhiệm may mẫu thời trang từ căn bản đến nâng cao, chuyên các dòng
+                thiết kế unisex, thời trang ứng dụng</p>
+            <p class="size-5 c-gray py-2">- Có kỹ năng tốt trong việc ra rập, triển mẫu, điều phối công đoạn sản xuất
+                thành phẩm</p>
+            <p class="size-5 c-gray py-2">- Am hiểu tốt về ngành may mặc và thị trường nguyên phụ liệu, vải vóc, nơi gia
+                công là một ưu thế của ứng viên</p>
+            <p class="size-5 c-gray py-2">- Cầu tiến, chịu khó, đam mê sáng tạo, yêu thích thời trang</p>
+            <p class="size-5 c-gray py-2">- Chế độ phúc lợi, thăng tiến hấp dẫn</p>
+        </div>
+    </div>
+    <div class="slide">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./img/photo-1-15982644667271495460493.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/SWE-thumbnail.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/photo-1-15982644667271495460493.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="content">
+        <h2 class="tex-center pt-8 fw-4">Products of SWE</h2>
+        <div class="nav-content center">
+            <figure class="snip0016">
+                <a href="">
+                    <img src="https://theme.hstatic.net/1000344185/1000806553/14/new_index_item_1.jpg?v=236"
+                        alt="sample41" />
+                </a>
+                <figcaption>
+                    <h2>Sản phẩm <span>mới cập bến </span> của SWE</h2>
+                    <p>SWE hướng đến sứ mệnh xây dựng một thương hiệu thời trang Streetwear đến gần hơn với các bạn trẻ.
+                        Góp mặt trong danh sách các Local Brand được yêu thích trong giời gian gần đây và với những ý
+                        tưởng không ngừng sáng tạo thì lần này SWE sẽ cho ra các mẫu áo T-Shirt, Shorts, Cap,...Những
+                        mẫu áo này mong các bạn trẻ sẽ đón nhận và ủng hộ để SWE có thể mang đến nhiều sản phẩm hơn nữa
+                    </p>
+                    <a href="#"></a>
+                </figcaption>
+            </figure>
+            <figure class="snip0016">
+                <img src="https://theme.hstatic.net/1000344185/1000806553/14/new_index_item_2.jpg?v=236"
+                    alt="sample42" />
+                <figcaption>
+                    <h2>Những mặt hàng <span>bán chạy nhất</span></h2>
+                    <p>Mỗi sản phẩm khi SWE tung ra đều được sự ủng hộ và chào đón cảu các bạn trẻ. Các sản phẩm cháy
+                        hàng một cách nhanh chóng, ngoài sức tưởng tượng của shop. Và đây là một trong những sản phầm
+                        bán chạy nhất của SWE </p>
+                    <a href="#"></a>
+                </figcaption>
+            </figure>
+        </div>
+        <div class="sub-content center">
+            <figure class="snip0016">
+                <img src="https://theme.hstatic.net/1000344185/1000806553/14/new_index_item_4.jpg?v=236"
+                    alt="sample43" />
+                <figcaption>
+                    <h2>Blogs <span></span> </h2>
+                    <p>Ngoài đem lại những sản phầm chất lượng cho mọi người SWE còn có những ưu đãi khủng như: <br>
+                        CHECK IN KHUNG GIỜ VÀNG - NHẬN ƯU ĐÃI DISCOUNT 10% <br>
+                        BỐC THĂM TRÚNG THƯỞNG VỚI HOÁ ĐƠN 499K và nhiều ưu đãi khác.
+
+                    </p>
+                    <a href="#"></a>
+                </figcaption>
+            </figure>
+            <figure class="snip0016">
+                <img src="https://theme.hstatic.net/1000344185/1000806553/14/new_index_item_6.jpg?v=236"
+                    alt="sample43" />
+                <figcaption>
+                    <h2>Những <span>Media</span>của SWE</h2>
+                    <p>Ngoài những sản phầm chất lượng thì SWE còn có những kênh truyền thông vô cùng tốt đề cho giới
+                        trẻ ai cũng biết về SWE <br>
+                        Đây là 1 trong những feedback khách hàng.
+                    </p>
+                    <a href="#"></a>
+                </figcaption>
+            </figure>
+        </div>
+
+        <h2 class="tex-center pt-8 fw-4 mr-b5">SWE and children's dreams</h2>
+        <div class="content-slide px">
+            <div class="box">
+                <img src="./img/nguoi.jpg">
+                <span class="normal size-12">Phong Cách</span>
+            </div>
+            <div class="box">
+                <img src="./img/nguoi7.jpg">
+                <span class="normal size-12">Trẻ Trung</span>
+            </div>
+            <div class="box">
+                <img src="./img/nguoi3.jpg">
+                <span class="normal size-12">Năng Động</span>
+            </div>
+            <div class="box">
+                <img src="./img/nguoi4.jpg">
+                <span class="normal size-12">Sành Điệu</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <div id="container">
+        <div class="header">
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-229641527-1">
+            </script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+
+                gtag('config', 'UA-229641527-1');
+            </script>
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-LBH0NDYGDT"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+
+                gtag('config', 'G-LBH0NDYGDT');
+            </script>
+            <div class="header-wrap flex between px-4">
+                <div class="logo">
+                    <a target="page" href="./home.html">
+                        <img width="80px" src="./img/swe_logo_0ea0272fe0d14286b3d85b2578e0bc4b.gif" alt="">
+                    </a>
+                </div>
+                <div class="header-menu">
+                    <ul class="main-menu flex hover">
+                        <li class="style px-4"><a target="page" class="text-decoration color btn-2" href="">HOME</a>
+                        </li>
+                        <li class="style px-4"><a target="page" class="text-decoration color btn-2" href="">ALL</a></li>
+                        <li class="style px-4"><a target="page" class="text-decoration color btn-2"
+                                href="./best.html">BEST</a></li>
+                        <li class="style px-4"><a target="page" class="text-decoration color btn-2"
+                                href="./tops.html">TOPS</a></li>
+                        <li class="style px-4"><a target="page" class="text-decoration color btn-2"
+                                href="">OUTERWEAR</a></li>
+                        <li class="style px-4"><a target="page" class="text-decoration color btn-2" href="">BOTTOMS</a>
+                        </li>
+                        <li class="style px-4"><a target="page" class="text-decoration color btn-2"
+                                href="">ACCESSORIES</a></li>
+                        <!-- <li class="style px-4" ><a target="page" class="text-decoration color btn-2" href="">SALE</a></li> -->
+                        <li class="style px-4"><a target="page" class="text-decoration color btn-2"
+                                href="./store.html">STORE</a></li>
+                        <li class="style px-4"><a target="page" class="text-decoration color btn-2"
+                                href="./hiring.html">HIRING</a></li>
+                    </ul>
+                </div>
+                <div class="header-actions">
+                    <ul class="flex hover_tow">
+                        <li class="style px-2"><a class="color text-decoration btn-2" href="">MY ACCOUNT</a>
+                            <ul class="nav-menu hover_tow">
+                                <li class="style px-2"><a class="color text-decoration" href="">LOG IN</a>
+                            </ul>
+
+                        </li>
+                        <li class="style px-2"><a class="color text-decoration btn-2" href="">SEARCH</a></li>
+                        <li class="style px-2"><a class="color text-decoration btn-2" href="">CART</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <article>
+            <iframe name="page" src="home.html" scrolling="auto" frameborder="0"></iframe>
+        </article>
+
+        <div class="footer flex between px-5">
+            <div class="footer-left">
+                <ul class="flex">
+                    <li class="style px-2"><a target="page" class="text-decoration font-weight color"
+                            href="./about.html">About SWE</a></li>
+                    <li class="style px-2"><a target="page" class="text-decoration font-weight color"
+                            href="./return.html">Return Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-center">
+                <span class="font-weight">©2022 SWE, LLC. All Rights Reserved.</span>
+            </div>
+            <div class="footer-right">
+                <ul class="flex">
+                    <li class="style px-2"><a target="page" class="text-decoration font-weight color"
+                            href="./contact.html">Contact Us</a></li>
+                    <li class="style px-2"><a target="page" class="text-decoration font-weight color"
+                            href="https://www.facebook.com/SWE-HANOI-865406597150513">Facebook</a></li>
+                    <li class="style px-2"><a target="page" class="text-decoration font-weight color"
+                            href="">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <div class="container">
+        <div class="about slide">
+            <p class="size py">CHÍNH SÁCH ĐỔI TRẢ</p>
+            <span class="size c-orange">I. CHÍNH SÁCH ÁP DỤNG</span>
+            <p class="c-gray size-6 line py-2">Khách hàng <strong>được hỗ trợ</strong> đổi sản phẩm trong vòng
+                <strong>05 ngày </strong> kể từ ngày nhận được sản phẩm.
+            </p>
+            <p class="c-gray size-6 line py-2">Tất cả những sản phẩm được áp dụng chính sách đổi hàng là những sản phẩm
+                còn nguyên hóa đơn, tag, mạc, packaging và phụ kiện đi kèm (nếu có), chưa qua sử dụng, giặt ủi, không có
+                mùi lạ và chưa sửa chữa.</p>
+            <p class="c-gray size-6 line py-2"><strong>01 hóa đơn</strong> khách sẽ được hỗ trợ đổi hàng <strong>01
+                    lần</strong> duy nhất.</p>
+            <p class="c-gray size-6 line py-2">Khách hàng vui lòng gửi sản phẩm lại thông qua các đơn vị vận chuyển.
+            </p>
+            <p class="c-gray size-6 line py-2">Trong trường hợp sản phẩm bị lỗi, SWE sẽ chi trả toàn bộ chi phí ship.
+            </p>
+            <p class="c-gray size-6 line py-2">Trong trường hợp khách hàng muốn đổi size hoặc đổi sang sản phẩm khác do
+                nhu cầu cá nhân, khách hàng vui lòng thanh toán phí ship 2 chiều. </p>
+            <p class="c-gray size-6 line py-2">Đối với khách hàng muốn đổi sang sản phẩm khác, bạn vui lòng chọn sản
+                phẩm mới có giá trị ngang bằng hoặc cao hơn giá trị sản phẩm cũ. </p>
+            <p class="c-gray size-6 line py-2">Trong trường hợp bạn chọn sản phẩm mới có giá trị cao hơn sản phẩm cũ,
+                bạn vui lòng thanh toán phí chênh lệch giúp SWE nhé.</p>
+            <p class="c-gray size-6 line py-2">Trong trường hợp bạn chọn sản phẩm mới có giá trị thấp hơn sản phẩm cũ,
+                SWE sẽ không hoàn trả số tiền chênh lệch.</p>
+            <p class="c-gray size-6 line py-2">Khách hàng vui lòng sản phẩm về kho của SWE, SWE sẽ kiểm tra điều kiện
+                của sản phẩm. Sau khi sản phẩm đảm bảo đầy đủ điều kiện, SWE sẽ tiến hành đơn đổi cho khách hàng.</p>
+            <p class="c-gray size-6 line py-2">SWE xin phép <strong> không hoàn trả tiền dưới mọi hình thức</strong>.
+                Hiện tại, SWE <strong>chỉ hỗ trợ hoàn lại tiền trong trường hợp sản phẩm khách đặt đã hết hàng toàn hệ
+                    thống</strong>.</p>
+            <p class="c-gray size-6 line py-2"><strong>Lưu ý</strong>: Đối với các sản phẩm được mua trong chương trình
+                giảm giá, khuyến mãi SWE sẽ hỗ trợ đổi trả tùy từng chương trình. Tuy nhiên, nếu khách hàng có nhu cầu
+                đổi SWE vẫn hỗ trợ với điều kiện khách hàng đồng ý bù tiền sản phẩm về giá gốc.</p>
+            <p class="c-gray size-6 line py-2">Đối với các chương trình khuyến mãi đặc biệt trên 15%, SWE sẽ không hỗ
+                trợ đổi trả sản phẩm.</p>
+            <span class="size c-orange">II. QUY TRÌNH ĐỔI TRẢ SẢN PHẨM</span>
+            <p class="c-gray size-6 line py-2">Đối với khách hàng mua hàng tại cửa hàng, bạn vui lòng mang sản phẩm và
+                hóa đơn đến các chi nhánh của SWE sau 15h để đổi hàng.</p>
+            <p class="c-gray size-6 line py-2">Đối với khách hàng mua hàng online, bạn vui lòng inbox FB/IG (Cung cấp mã
+                đơn hàng, mã sản phẩm cần đổi, lý do đổi) để được hỗ trợ. </p>
+            <h3 class="size-6">Bạn vui lòng gửi sản phẩm cần đổi đến địa chỉ sau đây:</h3>
+            <p class="c-orange font-weight size-6 py-2">Người nhận: SWE.</p>
+            <p class="c-orange font-weight size-6 py-2">Số điện thoại: 19003136.</p>
+            <p class="c-orange font-weight size-6 py-2">Địa chỉ: 29/4 Hoàng Diệu, Phường 10, Quận Phú Nhuận, TP.HCM.</p>
+            <p class="c-orange font-weight size-6 py-2">Khách hàng vui lòng ghi thông tin như sau kèm với sản phẩm khi
+                gửi hàng:</p>
+            <h3 class="py-2 size-6">Tên Facebook/ Instagram.</h3>
+            <h3 class="py-2 size-6">Số điện thoại bạn dùng để đặt hàng.</h3>
+            <h3 class="py-2 size-6">Lí do bạn gửi hàng: Đổi size (size bạn muốn đổi), đổi sang sản phẩm khác do nhu cầu
+                cá nhân (sản phẩm và size sản phẩm), lỗi do sản xuất (hình in, đường chỉ, dây kéo, nút,…).</h3>
+        </div>
+    </div>
+    <div class="container">
+        <div class="about">
+            <p class="size-10 tex-center font-weight py-t">STORE</p>
+            <div>
+                <p class="tex-center font-weight size-9 py-2 ">Hồ Chí Minh</h2>
+                <p class="tex-center py-2 "><a class="text-decoration c-gray size-3 " href="">44A Trần Quang Diệu, Quận
+                        3, HCMC</a></p>
+                <p class="tex-center py-2 "><a class="text-decoration c-gray size-3 " href="">TNP Lý Tự Trọng, Quận
+                        1</a></p>
+                <p class="tex-center py-2 "><a class="text-decoration c-gray size-3 " href="">TNP Lê Lai, Quận 1</a></p>
+                <p class="tex-center py-2 "><a class="text-decoration c-gray size-3 " href="">350 Điện Biên Phủ, Bình
+                        Thạnh</a></p>
+                <p class="tex-center py-2 "><a class="text-decoration c-gray size-3 " href="">136 Nguyễn Hồng Đào, Tân
+                        Bình, HCMC</a></p>
+            </div>
+            <div>
+                <p class="tex-center font-weight size-9 py-2">Hà Nội</h2>
+                <p class="tex-center py-2 "><a class="text-decoration c-gray size-3 " href="">TNP Vincom Bà Triệu, Hai
+                        Bà Trưng</a></p>
+                <p class="tex-center py-2 "><a class="text-decoration c-gray size-3 " href="">73 Đông Các, Ô Chợ Dừa</a>
+                </p>
+            </div>
+            <div>
+                <p class="tex-center font-weight size-9 py-2">Biên Hòa</h2>
+                <p class="tex-center py-2 "><a class="text-decoration c-gray size-3 " href="">Vincom Shophouse Biên Hòa
+                        - Phạm Văn Thuận, Tân Mai, Biên Hòa</a></p>
+            </div>
+            <div>
+                <p class="tex-center font-weight size-9 py-2">Cần Thơ</h2>
+                <p class="tex-center py-2 "><a class="text-decoration c-gray size-3 " href="">Vincom Shophouse Xuân
+                        Khánh - 209 Đường 30/4, Quận Ninh Kiều</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="tops">
+            <div class="product-grid grid-columns grid md:grid-cols-3">
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/22e0faa7-40f0-4823-9f8d-a634c4516c9f_d995de3b93e34aab85829bcecd05a01f_grande.jpeg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">CONNECTED TEE - BLACK</p>
+                            <p class="size-3 font-weight">380,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/2475_c9244bd0de83478cb5f4b3136c339872_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">CONNECTED TEE - WHITE</p>
+                            <p class="size-3 font-weight">380,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/a4a09932-d798-461e-9a3c-8d81daefc121_4b1b143530ba41e6bd83b1884b6c4deb_grande.jpeg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">PEACE AND LOVE TEE - WHITE</p>
+                            <p class="size-3 font-weight">370,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/8a0cbf3c-2fef-4568-ad1b-1c027d7fa90f_0006414a4b674e6a9dd93dc305808225_grande.jpeg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">SIRIMIRI TEE - BROWN</p>
+                            <p class="size-3 font-weight">360,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/3544_d246e9e196294730b995444cdf88dbc5_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">SIRIMIRI TEE - BLACK</p>
+                            <p class="size-3 font-weight">360,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/3537_c77e2be4f2294540b4a14c101bf487aa_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">SIRIMIRI TEE - WHITE</p>
+                            <p class="size-3 font-weight">360,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/2673_41da39c33f0f4a5db4c3fea784f06013_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">BRAND TEE - WHITE</p>
+                            <p class="size-3 font-weight">360,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/2668__1__b80c88219d4b44d2b73e8efc336338d2_medium.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">BRAND TEE - BLACK</p>
+                            <p class="size-3 font-weight">360,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/2551_06d3f55f04a44001b4f7985ff717f920_medium.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">SMOKE TEE - BLACK</p>
+                            <p class="size-3 font-weight">360,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/2668_6060e622726d427da2eea47778bd423d_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">LIFESTYLE TEE - BLACK</p>
+                            <p class="size-3 font-weight">360,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/2806_1dd1f06637054fe98f8a0a5835b67118_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">SMOKE TEE - SAND</p>
+                            <p class="size-3 font-weight">360,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/z3351353581147_996cd63affcd1c5b7a6b4d6d28d2cfdf_a5e184251a264047abd0a79a36560ef9_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">SWE LAND TEE - BLACK</p>
+                            <p class="size-3 font-weight">365,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/0ad70062-9bcd-468f-ab29-4b86ec6b67e1_c88107542ce04b51bd5541f1b04d06ec_grande.jpeg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">LIFESTYLE TEE - WHITE</p>
+                            <p class="size-3 font-weight">365,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/ea353e35-30f1-415d-be6f-de7733bcb773_c923e94588984d1599d2aa6b6f5f273b_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">SWE LAND TEE - WHITE</p>
+                            <p class="size-3 font-weight">365,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/2765_86e95f4d44774959a659ee7954bebefb_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">SIRIMIRI TEE - GREEN</p>
+                            <p class="size-3 font-weight">360,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/2188_48ded8c008e24b6593f736e94dbbe638_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">REVERSE TIE DYE TEE</p>
+                            <p class="size-3 font-weight">294,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/8640_53969a479bd140d7ac6cff7e54802530_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">SWE POLO - BLACK</p>
+                            <p class="size-3 font-weight">420,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/8787_47ab0a347b44454c8b849117e6b5c26e_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">NFSWE - TAN</p>
+                            <p class="size-3 font-weight">330,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/8973_94bcec0fee7a4768b73094e50e7e0670_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">JOKER TEE - TAN</p>
+                            <p class="size-3 font-weight">160,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/5712_561001aad036411f916fd5eb91f6b069_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">47K TEE - TEAL</p>
+                            <p class="size-3 font-weight">192,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/7667_4f2122bb0031462a84badf02a7674dfd_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">BASIC WASHED TEE - TEAL</p>
+                            <p class="size-3 font-weight">390,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/8438_056830631f2c40b79b9864141cf5d727_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">47K TEE - WHITE</p>
+                            <p class="size-3 font-weight">224,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/7831_059fe716f733429ea7d02239950459f3_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">EAZY TEE - ORANGE</p>
+                            <p class="size-3 font-weight">128,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/0737_8e927c6d04544b7a8010adbe2055907a_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">JOKER TEE - BLACK</p>
+                            <p class="size-3 font-weight">160,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/8938_102ec35605764db89bf2a692f0b3231b_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">PUZZLE SHIRT - BLACK</p>
+                            <p class="size-3 font-weight">420,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/0476_949f76c0489843f9a91a76dddae6f0b3_medium.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">VOLT TEE - LIGHT BLUE</p>
+                            <p class="size-3 font-weight">320,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/7910_355404f3f25040718337af3d1e5b446f_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">VOLT TEE - PINK</p>
+                            <p class="size-3 font-weight">192,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/7701_ee8c7b2bf2de40c7bfe40825d0efd112_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">VOLT TEE - WHITE</p>
+                            <p class="size-3 font-weight">224,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/7994_244d22003e294a51a4135c645ea7854b_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">SKELETON TEE - WASHED BLACK</p>
+                            <p class="size-3 font-weight">420,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/7847_325266b3f1c84d2d91450a97631ba459_grande.jpg"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">VOLT TEE - WHITE</p>
+                            <p class="size-3 font-weight">224,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="affter">
+                        <a href="" class="hove1">
+                            <img width="250px"
+                                src="https://product.hstatic.net/1000344185/product/8771_d358d48d341f4b4db6554c5980347dd9_grande.png"
+                                alt="">
+                        </a>
+                        <a href="" class="hove2 text-decoration">
+                            <ul>
+                                <li class="product-css">Xem Nhanh</li>
+                            </ul>
+                        </a>
+                        <div class="product-content line-5">
+                            <p class="size-4 font-weight">FLOWERS TEE - BLACK</p>
+                            <p class="size-3 font-weight">231,000₫</p>
+                            <div class="size line-2">
+                                <span class="size-4 c-gray font-weight cursor">S</span>
+                                <span class="size-4 c-gray font-weight cursor">M</span>
+                                <span class="size-4 c-gray font-weight cursor">L</span>
+                                <span class="size-4 c-gray font-weight cursor">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</body>
